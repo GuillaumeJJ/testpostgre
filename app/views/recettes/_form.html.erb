@@ -1,32 +1,55 @@
-<%= form_for(recette) do |f| %>
-  <% if recette.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recette.errors.count, "error") %> prohibited this recette from being saved:</h2>
+<%= form_for @recette, :html => { :class => "form-horizontal recette" } do |f| %>
 
-      <ul>
-      <% recette.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @recette.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@recette.errors.count, "error") %> prohibited this recette from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @recette.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nom %>
-    <%= f.text_field :nom %>
+  <div class="form-group">
+    <%= f.label :nom, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nom, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nom) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ingredients, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :ingredients, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:ingredients) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :photo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :photo, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:photo) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :createur, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :createur, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:createur) %>
   </div>
 
-  <div class="field">
-    <%= f.label :ingredients %>
-    <%= f.text_field :ingredients %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                recettes_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :photo %>
-    <%= f.text_field :photo %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

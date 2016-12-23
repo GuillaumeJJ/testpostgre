@@ -12,6 +12,7 @@ gem 'rails', '~> 5.0.1'
 gem 'sqlite3'
 # On se lance dans la gem postgre
 gem 'pg'
+gem "twitter-bootstrap-rails"
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
