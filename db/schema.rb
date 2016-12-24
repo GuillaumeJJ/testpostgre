@@ -10,19 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223150219) do
+ActiveRecord::Schema.define(version: 20161223154347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "recettes", force: :cascade do |t|
     t.string   "nom"
-    t.string   "ingredients"
     t.string   "photo"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "createur",    limit: 30
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "createur",          limit: 30
+    t.text     "description"
+    t.integer  "prix",              limit: 2
+    t.integer  "complexite",        limit: 2
+    t.string   "temps_preparation"
     t.index ["nom"], name: "ind_nom", unique: true, using: :btree
   end
 
+  create_table "utilisateurs", force: :cascade do |t|
+    t.string   "user_name"
+    t.string   "user_mail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_name"], name: "utilisateurs_user_name_key", unique: true, using: :btree
+  end
+
+  add_foreign_key "recettes", "utilisateurs", column: "createur", primary_key: "user_name", name: "fk_createur"
 end
