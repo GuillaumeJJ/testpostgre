@@ -37,6 +37,34 @@
     </div>
     <%=f.error_span(:createur) %>
   </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :prix, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :prix, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :prix, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:prix) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :complexite, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :complexite, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:complexite) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :temps_preparation, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :temps_preparation, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:temps_preparation) %>
+  </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">

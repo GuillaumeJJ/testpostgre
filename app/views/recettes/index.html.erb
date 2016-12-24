@@ -9,7 +9,10 @@
       <th><%= model_class.human_attribute_name(:nom) %></th>
       <th><%= model_class.human_attribute_name(:photo) %></th>
       <th><%= model_class.human_attribute_name(:createur) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:prix) %></th>
+      <th><%= model_class.human_attribute_name(:complexite) %></th>
+      <th><%= model_class.human_attribute_name(:temps_preparation) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -18,9 +21,12 @@
       <tr>
         <td><%= link_to recette.id, recette_path(recette) %></td>
         <td><%= recette.nom %></td>
-        <td><%= recette.photo %></td>
+        <td><img src="<%= recette.photo %>" style="width:300px" /></td>
         <td><%= recette.createur %></td>
-        <td><%=l recette.created_at %></td>
+        <td><%= recette.description %></td>
+        <td><%= recette.prix %></td>
+        <td><%= recette.complexite %></td>
+        <td><%= recette.temps_preparation %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_recette_path(recette), :class => 'btn btn-default btn-xs' %>
